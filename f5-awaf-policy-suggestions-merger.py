@@ -76,7 +76,6 @@ class ASM:
 
         taskLink = resp.json()['selfLink'].replace("localhost",self.__device)
 
-        status = 0
         while True:
 
             try:
@@ -87,7 +86,6 @@ class ASM:
             task_status = resp.json()['status']
 
             if task_status == "COMPLETED":
-                status = 1
                 break
         try:
             resp = self.__session.get("https://%s/mgmt/tm/asm/file-transfer/downloads/%s" % (self.__device,filename))
@@ -118,7 +116,6 @@ class ASM:
 
         taskLink = resp.json()['selfLink'].replace("localhost",self.__device)
 
-        status = 0
         while True:
             
             try:
@@ -129,7 +126,6 @@ class ASM:
             task_status = resp.json()['status']
 
             if task_status == "COMPLETED":
-                status = 1
                 break
 
         try:
