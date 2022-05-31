@@ -131,7 +131,7 @@ class ASM:
         try:
             resp = self.__session.get("https://%s/mgmt/tm/asm/file-transfer/downloads/%s" % (self.__device,filename))
         except requests.exceptions.RequestException as error:
-                raise F5PolicySuggestionsMergerException("(REQUESTS): FAILED %s" % error)
+            raise F5PolicySuggestionsMergerException("(REQUESTS): FAILED %s" % error)
 
         self.__suggestions_json = resp.json()
 
