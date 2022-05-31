@@ -11,6 +11,8 @@ This tool must be used only when all traffic reaching your ASM security policy i
 
 In both scenarios is a **MUST-HAVE** that all traffic reaching the application (and ASM security policy) is valid traffic (non-attack traffic). 
 
+**The script will work only in BIG-IP version 16.X.**
+
 ## Usage
 
 ```
@@ -93,7 +95,7 @@ python f5-awaf-policy-suggestions-merger.py --device "X.X.X.X" --username "admin
 
 2. Customize the **learning suggestions file** (e.g. remove learning suggestions that you are not sure about them).
 
-3. Export the ASM policy and merge it with the local (customized) **learning suggestion file**:
+3. Export the ASM policy and merge it with the local (customized) **learning suggestion file**. The ASM merged policy will be upload, imported and applied on the BIG-IP.
 
 ```
 python f5-awaf-policy-suggestions-merger.py --device "X.X.X.X" --username "admin" --password "XXXXXXX" --policy "/Common/asmpolicy_dvwa" --action merge-import --suggestionsfile tmp/Common-asmpolicy_dvwa.suggestions.json
